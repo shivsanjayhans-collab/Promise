@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Promise Day 💖</title>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background:#ffdde1;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    overflow-x:hidden;
+    color:#fff;
+  }
+
+  header {
+    text-align:center;
+    padding:20px 10px 10px;
+  }
+  header h1 {
+    font-size:1.8rem;
+    font-weight:700;
+  }
+  header p {
+    font-size:0.9rem;
+    opacity:0.9;
+    margin-top:4px;
+  }
+
+  /* Music Button */
+  #musicToggle {
+    margin-top:10px;
+    padding:8px 16px;
+    border:none;
+    border-radius:20px;
+    background:rgba(255,255,255,0.25);
+    color:#fff;
+    font-size:0.85rem;
+    backdrop-filter:blur(6px);
+  }
+
+  /* Swipe Cards */
+  .carousel {
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    gap:16px;
+    padding:20px 16px 30px;
+  }
+  .carousel::-webkit-scrollbar { display:none; }
+
+  .card {
+    flex:0 0 85%;
+    height:360px;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    scroll-snap-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.35);
+  }
+
+  .card img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(0.75);
+  }
+
+  .overlay {
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+
+  .tag {
+    font-size:0.7rem;
+    opacity:0.9;
+    letter-spacing:0.1em;
+    margin-bottom:4px;
+  }
+  .title {
+    font-size:1.2rem;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .text {
+    font-size:0.85rem;
+    line-height:1.35;
+    opacity:0.95;
+  }
+
+  footer {
+    text-align:center;
+    font-size:0.8rem;
+    padding:10px 20px 30px;
+    opacity:0.85;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Promise Day 💌</h1>
+  <p>Swipe through my little promises for you.</p>
+  <button id="musicToggle">🎵 Play Music</button>
+</header>
+
+<div class="carousel">
+
+  <!-- Card 1 -->
+  <div class="card">
+    <img src="https://images.pexels.com/photos/2072179/pexels-photo-2072179.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <div class="overlay">
+      <div class="tag">Promise #1</div>
+      <div class="title">I promise to stay.</div>
+      <div class="text">No matter how loud the world gets, my heart will always choose you.</div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <img src="https://images.pexels.com/photos/1028725/pexels-photo-1028725.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <div class="overlay">
+      <div class="tag">Promise #2</div>
+      <div class="title">I promise to listen.</div>
+      <div class="text">To your words, your silence, your fears, your dreams — all of you.</div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <img src="https://images.pexels.com/photos/3693901/pexels-photo-3693901.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <div class="overlay">
+      <div class="tag">Promise #3</div>
+      <div class="title">I promise to grow.</div>
+      <div class="text">With you, for you, beside you — in every version of tomorrow.</div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <img src="https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <div class="overlay">
+      <div class="tag">Promise #4</div>
+      <div class="title">I promise softness.</div>
+      <div class="text">Warm hugs, silly jokes, tiny surprises — love that feels like home.</div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <img src="https://images.pexels.com/photos/2082153/pexels-photo-2082153.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <div class="overlay">
+      <div class="tag">Promise #5</div>
+      <div class="title">I promise forever.</div>
+      <div class="text">Not as a word — as a choice, every single day.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  These promises aren’t just lines — they’re pieces of my heart stitched for you.
+</footer>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop muted>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  // Fade-in after autoplay starts
+  window.addEventListener("load", () => {
+    let vol = 0;
+    const fade = setInterval(() => {
+      if (vol < 1) {
+        vol += 0.05;
+        music.volume = vol;
+      } else {
+        clearInterval(fade);
+        music.muted = false;
+      }
+    }, 200);
+  });
+</script>
+
+
+</body>
+</html>
